@@ -1,9 +1,10 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import CartSvg from "@/public/assets/svg/cart.svg"
+import { useAppSelector } from '@/app/lib/Redux/hooks'
 
-const Cart = styled.button<{cartItems: number}>`
+const Cart = styled.button<{ cartItems: number }>`
 
     display: flex;
     flex-direction: row;
@@ -30,8 +31,11 @@ const Cart = styled.button<{cartItems: number}>`
 
 function CartButton() {
 
-    // placeholder
-    const itemsOnCart = 0
+    const [itemsOnCart, setItemsOnCart] = useState<number>(0)
+
+    const cartState = useAppSelector((state) => (state.CartItems as { value: ProductOnCartType[] }).value)
+
+    useEffect(() => setItemsOnCart(cartState.length), [cartState.length])
 
     return (
         <Cart cartItems={itemsOnCart}>
