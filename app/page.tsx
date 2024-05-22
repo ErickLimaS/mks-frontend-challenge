@@ -99,7 +99,7 @@ export default async function Home() {
   return (
     <main className="bg-[#F9F9F9] pt-4 pb-9">
 
-      <div>
+      <div className="md:min-h-[90vh] min-[1921px]:min-h-[70vh] md:flex md:my-auto">
         <ul className="max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-8 justify-items-center">
 
           {mockData.map(item => (
