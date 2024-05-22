@@ -2,7 +2,9 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState: { value: ProductOnCartType[] } = {
-    value: JSON.parse(localStorage.getItem("CartItems") as string) || []
+
+    value: typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("CartItems") as string) || [] : []
+    
 }
 
 export const handleCart = createSlice({
