@@ -7,7 +7,7 @@ import ShoppingBagSvg from "@/public/assets/svg/shopping-bag.svg"
 
 const Card = styled.div<{ amountOnCart: number }>`
 
-    height: 100%;
+    min-height: 100%;
 
     background: #FFF;
 
@@ -64,7 +64,7 @@ function ProductCard({ data }: { data: ProductType }) {
                 />
             </div>
 
-            <div className='flex gap-12 md:gap-6 items-start justify-between px-4'>
+            <div className='flex gap-4 sm:gap-12 md:gap-4 lg:gap-6 items-start justify-between w-full px-4'>
 
                 <h3 className='text-[#2C2C2C] text-base font-normal line-clamp-2'>
                     {data.name}
