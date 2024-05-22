@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState: { value: ProductOnCartType[] } = {
 
     value: typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("CartItems") as string) || [] : []
-    
+
 }
 
 export const handleCart = createSlice({
@@ -44,7 +44,7 @@ export const handleCart = createSlice({
 
             })
 
-            state.value == newCartList
+            state.value = newCartList
             localStorage.setItem("CartItems", JSON.stringify(newCartList))
 
         },
@@ -69,25 +69,21 @@ export const handleCart = createSlice({
 
             }).filter(item => item != null)
 
-            state.value == newCartList
+            state.value = newCartList
             localStorage.setItem("CartItems", JSON.stringify(newCartList))
 
         },
-        excludeItemFromCart: (state, { payload }) => {
+        removeItemFromCart: (state, { payload }) => {
 
-            const newCartList = state.value.map(item => {
+            const newCartList = state.value.filter(item => item.id != payload.id)
 
-                if (item.id == payload.id) return null
-
-            }).filter(item => item != null)
-
-            state.value == newCartList as ProductOnCartType[] | null[]
+            state.value = newCartList
             localStorage.setItem("CartItems", JSON.stringify(newCartList))
 
         }
     }
 })
 
-export const { addOneUnitToCart, removeOneUnitFromCart, excludeItemFromCart } = handleCart.actions
+export const { addOneUnitToCart, removeOneUnitFromCart, removeItemFromCart } = handleCart.actions
 
 export default handleCart.reducer

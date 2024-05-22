@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './header/header'
 import Footer from './footer/footer'
+import CheckoutSidebar from './checkoutSidebar'
 
 function Layout({ children }: { children: React.ReactNode }) {
     return (
@@ -9,6 +10,8 @@ function Layout({ children }: { children: React.ReactNode }) {
             <Header />
 
             {children}
+
+            <CheckoutSidebar />
 
             <Footer />
 

@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import CartSvg from "@/public/assets/svg/cart.svg"
-import { useAppSelector } from '@/app/lib/Redux/hooks'
+import { useAppDispatch, useAppSelector } from '@/app/lib/Redux/hooks'
+import { toggleVisibility } from '@/app/lib/Redux/Features/showCheckout'
 
 const Cart = styled.button<{ cartItems: number }>`
 
@@ -35,10 +36,18 @@ function CartButton() {
 
     const cartState = useAppSelector((state) => (state.CartItems as { value: ProductOnCartType[] }).value)
 
+    const dispatch = useAppDispatch()
+
+    function changeCheckoutVisibility() {
+
+        dispatch(toggleVisibility())
+
+    }
+
     useEffect(() => setItemsOnCart(cartState.length), [cartState.length])
 
     return (
-        <Cart cartItems={itemsOnCart}>
+        <Cart cartItems={itemsOnCart} onClick={() => changeCheckoutVisibility()}>
 
             <CartSvg className="max-md:scale-75" />
 

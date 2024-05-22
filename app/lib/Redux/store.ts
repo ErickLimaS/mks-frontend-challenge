@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
-import CartItems from "@/app/lib/Redux/Features/handleCart"
+import cartItemsReducer from "@/app/lib/Redux/Features/handleCart"
+import toggleCheckoutVisibilityReducer from '@/app/lib/Redux/Features/showCheckout'
 
 export const makeStore = () => {
     return configureStore({
         reducer: {
-            CartItems: CartItems
+            CartItems: cartItemsReducer,
+            ToggleCheckoutVisibility: toggleCheckoutVisibilityReducer
         }
     })
 }
