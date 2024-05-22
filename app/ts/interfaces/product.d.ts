@@ -1,4 +1,5 @@
 interface ProductType {
+
     id: number,
     name: string,
     brand: string,
@@ -6,5 +7,12 @@ interface ProductType {
     photo: string,
     price: string,
     createdAt: string,
-    updatedAt: string,
+    updatedAt: string
+
+}
+
+interface ProductOnCartType extends ProductType {
+
+    unitsOnCart: number
+
 }

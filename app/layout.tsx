@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Layout from "./components/layout";
 import StyledComponentsRegistry from "./lib/registry";
+import StoreProvider from "./StoreProvider";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -21,12 +22,19 @@ export default function RootLayout({
 
       <body className={montserrat.className}>
 
-        <StyledComponentsRegistry>
-          <Layout>
-            {children}
-          </Layout>
-        </StyledComponentsRegistry>
-        
+
+        <StoreProvider>
+
+          <StyledComponentsRegistry>
+            <Layout>
+
+              {children}
+
+            </Layout>
+          </StyledComponentsRegistry>
+
+        </StoreProvider>
+
       </body>
 
     </html>

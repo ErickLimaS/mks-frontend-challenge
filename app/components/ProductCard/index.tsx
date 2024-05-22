@@ -1,9 +1,11 @@
 "use client"
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PriceTag from '../PriceTag'
 import ShoppingBagSvg from "@/public/assets/svg/shopping-bag.svg"
+import { useAppDispatch, useAppSelector } from '@/app/lib/Redux/hooks'
+import { addOneUnitToCart } from '@/app/lib/Redux/Features/handleCart'
 
 const Card = styled.div<{ amountOnCart: number }>`
 
@@ -52,6 +54,29 @@ function ProductCard({ data }: { data: ProductType }) {
 
     const [amountAddedToCart, setAmountAddedToCart] = useState<number>(0)
 
+    const cartState = useAppSelector((state) => (state.CartItems as { value: ProductOnCartType[] }).value)
+    const dispatch = useAppDispatch()
+
+    function handleBuyBtn(product: ProductType) {
+
+        setAmountAddedToCart(amountAddedToCart + 1)
+
+        dispatch(addOneUnitToCart(product))
+
+    }
+
+    useEffect(() => {
+
+        if (cartState.length > 0) {
+
+            const unitsOnCartState = cartState.find(item => item.id == data.id)
+
+            setAmountAddedToCart(unitsOnCartState?.unitsOnCart || 0)
+
+        }
+
+    }, [])
+
     return (
         <Card amountOnCart={amountAddedToCart}>
 
@@ -78,8 +103,8 @@ function ProductCard({ data }: { data: ProductType }) {
                 {data.description}
             </p>
 
-            <BuyBtn wasAddedOnCart={amountAddedToCart > 0}>
-                <ShoppingBagSvg /> COMPRAR
+            <BuyBtn wasAddedOnCart={amountAddedToCart > 0} onClick={() => handleBuyBtn(data)}>
+                <ShoppingBagSvg /> COMPRAR {amountAddedToCart ? amountAddedToCart : ""}
             </BuyBtn>
 
         </Card>
