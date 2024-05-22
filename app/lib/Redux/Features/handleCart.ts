@@ -51,23 +51,19 @@ export const handleCart = createSlice({
         removeOneUnitFromCart: (state, { payload }) => {
 
             // Map current array to find the product, then remove 1 unit from cart
-            // if product's units is 1, it set it as NULL. 
-            // Filter will remove the NULL results. 
             const newCartList = state.value.map(item => {
 
                 if (item.id == payload.id) {
 
-                    if (item.unitsOnCart > 1) {
-                        return { ...item, unitsOnCart: item.unitsOnCart -= 1 }
-                    }
-
-                    return null
+                    if (item.unitsOnCart > 1)  return { ...item, unitsOnCart: item.unitsOnCart -= 1 }
+                    
+                    return item
 
                 }
 
                 return item
 
-            }).filter(item => item != null)
+            })
 
             state.value = newCartList
             localStorage.setItem("CartItems", JSON.stringify(newCartList))
