@@ -4,6 +4,7 @@ import "./globals.css";
 import Layout from "./components/layout";
 import StyledComponentsRegistry from "./lib/registry";
 import StoreProvider from "./StoreProvider";
+import ReactQueryProvider from "./lib/ReactQuery/Provider";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -22,16 +23,19 @@ export default function RootLayout({
 
       <body className={montserrat.className}>
 
-
         <StoreProvider>
 
-          <StyledComponentsRegistry>
-            <Layout>
+          <ReactQueryProvider>
+            
+            <StyledComponentsRegistry>
+              <Layout>
 
-              {children}
+                {children}
 
-            </Layout>
-          </StyledComponentsRegistry>
+              </Layout>
+            </StyledComponentsRegistry>
+
+          </ReactQueryProvider>
 
         </StoreProvider>
 

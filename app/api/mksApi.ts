@@ -1,18 +1,17 @@
-
-const BASE_URL = "https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1"
+const BASE_URL_MKS_API = "https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1"
 
 // Fetchs products by params
-export async function getProducts(page: string, rows: string, sortBy: "id" | "name" | "price", orderBy: "DESC" | "ASC") {
+export async function getProducts(
+    { queryKey }: {
+        queryKey: [
+            string, {
+                page: string;
+                rows: string;
+                sortBy: string;
+                orderBy: string;
+            }]
+    }) {
 
-    const params = {
-        page: page,
-        rows: rows,
-        sortBy: sortBy,
-        orderBy: orderBy
-    }
-
-    const response = await fetch(`${BASE_URL}/products?` + new URLSearchParams(params)).then(res => res.json())
-
-    return response
+    return fetch(`${BASE_URL_MKS_API}/${queryKey[0]}?` + new URLSearchParams(queryKey[1])).then(res => res.json())
 
 }
