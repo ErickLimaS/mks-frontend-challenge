@@ -15,7 +15,11 @@ const Card = styled.div<{ amountOnCart: number }>`
 
     border-radius: 8px;
 
-    box-shadow: 0px 2px 8px 0px #00000022;
+    box-shadow:  ${props => props.amountOnCart >= 1 ? "0px 2px 8px 0px #00000044" : "0px 2px 8px 0px #00000022"};
+
+    transform: ${props => props.amountOnCart >= 1 ? "scale(1.05)" : "scale(1)"};
+
+    transition: all ease-in-out 200ms;
 
     display: flex;
     flex-direction: column;
@@ -26,7 +30,7 @@ const Card = styled.div<{ amountOnCart: number }>`
 
 `
 
-const BuyBtn = styled.button<{ wasAddedOnCart: boolean }>`
+const BuyBtn = styled.button`
 
     width: 100%;
 
@@ -67,15 +71,11 @@ function ProductCard({ data }: { data: ProductType }) {
 
     useEffect(() => {
 
-        if (cartState.length > 0) {
+        const unitsOnCartState = cartState.find(item => item.id == data.id)
 
-            const unitsOnCartState = cartState.find(item => item.id == data.id)
+        setAmountAddedToCart(unitsOnCartState?.unitsOnCart || 0)
 
-            setAmountAddedToCart(unitsOnCartState?.unitsOnCart || 0)
-
-        }
-
-    }, [])
+    }, [cartState])
 
     return (
         <Card amountOnCart={amountAddedToCart}>
@@ -103,8 +103,8 @@ function ProductCard({ data }: { data: ProductType }) {
                 {data.description}
             </p>
 
-            <BuyBtn wasAddedOnCart={amountAddedToCart > 0} onClick={() => handleBuyBtn(data)}>
-                <ShoppingBagSvg /> COMPRAR {amountAddedToCart ? amountAddedToCart : ""}
+            <BuyBtn onClick={() => handleBuyBtn(data)}>
+                <ShoppingBagSvg /> {amountAddedToCart ? `${amountAddedToCart} NO CARRINHO` : "COMPRAR"}
             </BuyBtn>
 
         </Card>

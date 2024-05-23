@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import CartSvg from "@/public/assets/svg/cart.svg"
 import { useAppDispatch, useAppSelector } from '@/app/lib/Redux/hooks'
 import { toggleVisibility } from '@/app/lib/Redux/Features/showCheckout'
+import { motion } from 'framer-motion'
 
 const Cart = styled.button<{ cartItems: number }>`
 
@@ -47,7 +48,14 @@ function CartButton() {
     useEffect(() => setItemsOnCart(cartState.length), [cartState.length])
 
     return (
-        <Cart cartItems={itemsOnCart} onClick={() => changeCheckoutVisibility()}>
+        <Cart
+            as={motion.button}
+            title="Abrir Carrinho"
+            cartItems={itemsOnCart}
+            onClick={() => changeCheckoutVisibility()}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+        >
 
             <CartSvg className="max-md:scale-75" />
 

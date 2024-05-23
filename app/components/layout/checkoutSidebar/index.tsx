@@ -52,6 +52,29 @@ function CheckoutSidebar() {
 
     }
 
+    function submitCheckout() {
+
+        if (cartItems.length == 0) {
+            alert(`Sem produtos no carrinho.`)
+
+            return
+        }
+
+        console.log({
+            products: cartItems,
+            total: totalValueCheckout
+        })
+
+        alert(`${cartItems.map(item => ` -- ${item.name} (${item.unitsOnCart} unit.)`)}
+
+                                Total: R$ ${convertPriceToBrl(totalValueCheckout)}
+                                
+                                Informação completa no console.
+
+        `)
+
+    }
+
     useEffect(() => {
 
         calculateCheckoutTotal()
@@ -71,9 +94,9 @@ function CheckoutSidebar() {
 
                     <div className='flex justify-between items-start gap-2 pl-9 pr-4'>
 
-                        <h1 className='text-[27px] leading-8 font-bold text-white'>
+                        <h4 className='text-[27px] leading-8 font-bold text-white'>
                             Carrinho de compras
-                        </h1>
+                        </h4>
 
                         <motion.button
                             title="Fechar"
@@ -111,10 +134,12 @@ function CheckoutSidebar() {
 
                         <div>
 
-                            <CheckoutBtn onClick={() => console.log(cartItems)}>
-
+                            <CheckoutBtn
+                                as={motion.button}
+                                whileTap={{ fontSize: "30px" }}
+                                onClick={() => submitCheckout()}
+                            >
                                 Finalizar Compra
-
                             </CheckoutBtn>
 
                         </div>

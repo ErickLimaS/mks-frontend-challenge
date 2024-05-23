@@ -61,7 +61,7 @@ function ProductOnCartCard({ data }: { data: ProductOnCartType }) {
         <AnimatePresence>
             {amountAddedToCart >= 1 && (
                 <motion.div
-                    className='relative flex flex-col lg:flex-row items-center justify-between gap-4 lg:p-4 bg-white rounded-lg min-h-full w-[96%]'
+                    className='relative flex flex-col lg:flex-row items-center justify-between gap-2 max-lg:gap-4 lg:p-4 bg-white rounded-lg min-h-full w-[96%]'
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0 }}
@@ -76,7 +76,7 @@ function ProductOnCartCard({ data }: { data: ProductOnCartType }) {
                         />
                     </div>
 
-                    <div className='flex items-start justify-between w-full px-4'>
+                    <div className='flex items-start justify-between w-full pl-4'>
 
                         <h3 className='text-[#2C2C2C] text-base font-normal line-clamp-3'>
                             {data.name}
@@ -91,8 +91,10 @@ function ProductOnCartCard({ data }: { data: ProductOnCartType }) {
                                 Qtd
                             </h4>
 
-                            <div className='flex items-center border-[1px] divide-x-[1px] divide-[rgba(191,191,191,1)] rounded-[4px]'>
+                            <div className='flex items-center border-[1px] rounded-[4px]'>
                                 <ActionBtn
+                                    as={motion.button}
+                                    whileTap={{ scale: 0.7 }}
                                     title="Remover 1"
                                     onClick={() => changeProductsAmount(data, "remove")}
                                 >
@@ -100,13 +102,15 @@ function ProductOnCartCard({ data }: { data: ProductOnCartType }) {
                                 </ActionBtn>
 
                                 <p
-                                    className='flex items-center justify-center p-2 lg:py-1 text-xl lg:text-lg h-4/5 min-w-9'
+                                    className='flex items-center justify-center p-2 lg:py-1 text-xl lg:text-lg h-4/5 min-w-9 border-r-[1px] border-l-[1px] border-[rgba(191,191,191,1)]'
                                     aria-label={`${data.unitsOnCart} adicionado${data.unitsOnCart > 1 ? "s" : ""} no carrinho.`}
                                 >
                                     {data.unitsOnCart}
                                 </p>
 
                                 <ActionBtn
+                                    as={motion.button}
+                                    whileTap={{ scale: 0.7 }}
                                     title="Adicionar 1"
                                     onClick={() => changeProductsAmount(data, "add")}
                                 >
