@@ -2,9 +2,9 @@ import React from 'react'
 
 function Footer() {
     return (
-        <footer className='text-center bg-[#EEEEEE]'>
+        <footer className='text-center bg-[#EEEEEE] py-2'>
 
-            <small className='font-normal text-xs'> 
+            <small className='font-normal text-xs'>
                 MKS Sistemas © Todos os direitos reservados
             </small>
 

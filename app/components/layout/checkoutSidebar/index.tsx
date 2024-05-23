@@ -110,7 +110,7 @@ function CheckoutSidebar() {
                     </div>
 
                     <div className='mx-8 sm:mx-9 my-14'>
-                        <ul className='overflow-y-auto flex flex-col gap-4 h-[60vh] pt-3'>
+                        <ul className='overflow-y-auto flex flex-col gap-4 h-[60vh] pt-3 scrollbar-thin scrollbar-track-white scrollbar-thumb-primary/50 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
                             {cartItems.map((item) => (
 
                                 <li key={item.id}>
