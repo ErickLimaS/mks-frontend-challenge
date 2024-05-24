@@ -1,3 +1,18 @@
+# Desafio MKS
+
+<p align="center"><a href="https://mks-frontend-challenge-beige-two.vercel.app/">Link do Site</a></p>
+
+## Ferramentas Usadas
+
+- [x] Next.js
+- [x] Typescript
+- [x] React Redux
+- [x] Framer Motion
+- [x] Styled Components
+- [x] Tailwind
+- [x] React Query
+- [x] Jest
+
 Diretrizes do desafio
 ===========================
 
