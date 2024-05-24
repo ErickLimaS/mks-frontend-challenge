@@ -31,7 +31,10 @@ function ProductsGrid() {
 
     if (error) {
         return (
-            <div className='min-w-[90vw] m-auto'>
+            <div
+                data-testid="error-container"
+                className='min-w-[90vw] m-auto'
+            >
                 <h2 className='text-4xl font-bold text-red-600 text-center'>
                     Error: <span className='text-4xl font-bold text-black/80'>{error.message}</span>
                 </h2>
@@ -48,6 +51,7 @@ function ProductsGrid() {
                     initial="initial"
                     animate="animate"
                     exit="exit"
+                    data-testid="loading-container"
                     className="max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg m-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-8 justify-items-center"
                 >
 
@@ -69,6 +73,7 @@ function ProductsGrid() {
                     variants={opacityStaggerAnimation}
                     initial="initial"
                     animate="animate"
+                    data-testid="products-container"
                     className="max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg m-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-8 justify-items-center"
                 >
 

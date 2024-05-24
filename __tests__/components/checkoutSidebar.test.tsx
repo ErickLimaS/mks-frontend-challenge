@@ -8,6 +8,12 @@ import { render, screen } from '@testing-library/react'
 
 describe("Checkout Sidebar", () => {
 
+    // *** ATTENTION ***
+    // 
+    // FRAMER MOTION CAN'T be MOCKED
+    // so it will FAIL the TEST to be VISIBLE
+    // 
+
     it("gets open when Header Cart Button is clicked", async () => {
 
         const user = userEvent.setup()
@@ -37,8 +43,8 @@ describe("Checkout Sidebar", () => {
         await user.click(headerCartBtn)
 
         const checkoutSidebarHeadindText = screen.getByText("Carrinho de compras")
- 
-        // ATTENTION: Framer Motion cant be mocked, so it will show almost everytime as Not Visible
+
+        // ATTENTION: Framer Motion can not be mocked, so it will almost everytime show as Not Visible
         expect(checkoutSidebarHeadindText).toBeVisible()
 
     })
