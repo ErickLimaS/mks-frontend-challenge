@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PriceTag from '../PriceTag'
 import { useAppDispatch } from '@/app/lib/Redux/hooks'
@@ -34,19 +34,10 @@ function ProductOnCartCard({ data }: { data: ProductOnCartType }) {
 
     function changeProductsAmount(product: ProductType, action: "add" | "remove") {
 
-        if (action == "add") {
+        if (action == "add") return dispatch(addOneUnitToCart(product))
 
-            dispatch(addOneUnitToCart(product))
-            setAmountAddedToCart(amountAddedToCart + 1)
-
-            return
-
-        }
-
-        if (amountAddedToCart > 1) {
-            dispatch(removeOneUnitFromCart(product))
-            setAmountAddedToCart(amountAddedToCart > 1 ? amountAddedToCart - 1 : 0)
-        }
+        // Prevent from complete remove product from Cart
+        if (amountAddedToCart > 1) dispatch(removeOneUnitFromCart(product))
 
     }
 
@@ -56,6 +47,8 @@ function ProductOnCartCard({ data }: { data: ProductOnCartType }) {
         setAmountAddedToCart(0)
 
     }
+
+    useEffect(() => setAmountAddedToCart(data.unitsOnCart), [data.unitsOnCart])
 
     return (
         <AnimatePresence>
