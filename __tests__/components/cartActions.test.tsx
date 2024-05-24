@@ -3,7 +3,7 @@ import toggleCheckoutVisibilityReducer from "@/app/lib/Redux/Features/showChecko
 import StyledComponentsRegistry from "@/app/lib/registry"
 import StoreProvider from "@/app/StoreProvider"
 import ReactQueryProvider from "@/app/lib/ReactQuery/Provider";
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import handleCartReducer, { addOneUnitToCart } from "@/app/lib/Redux/Features/handleCart"
 import { configureStore } from "@reduxjs/toolkit/react"
 import userEvent from "@testing-library/user-event"
@@ -116,6 +116,55 @@ describe("Checkout Cart With Products", () => {
         await user.click(decreaseUnitBtn)
 
         expect((mockStore.getState().CartItems)).toEqual({ value: [{ ...mockProductItem, unitsOnCart: 1 }] })
+
+    })
+
+    it("remove product from cart", async () => {
+
+        const user = userEvent.setup()
+
+        const mockStore = configureStore({
+            reducer: {
+                CartItems: handleCartReducer,
+                ToggleCheckoutVisibility: toggleCheckoutVisibilityReducer
+            }
+        })
+
+        // Adds 1 Product unit on Cart Checkout
+        mockStore.dispatch(addOneUnitToCart(mockProductItem))
+        expect((mockStore.getState().CartItems)).toEqual({ value: [{ ...mockProductItem, unitsOnCart: 1 }] })
+
+        render(
+            <StoreProvider testMockStore={mockStore}>
+
+                <ReactQueryProvider>
+
+                    <StyledComponentsRegistry>
+                        <Layout>
+                            <></>
+                        </Layout>
+                    </StyledComponentsRegistry>
+
+                </ReactQueryProvider>
+
+            </StoreProvider>
+        )
+
+        const headerCartBtn = screen.getByRole("button", { name: "1" }) // Name is 1 due to quantity of products on cart
+
+        // Opens Checkout Sidebar
+        await user.click(headerCartBtn)
+
+        // Get all <li> tags, which is from the product list
+        const productCards = screen.getAllByRole("listitem")
+
+        // Get the Remove Button(X) from the first and only product on list 
+        const productCardRemoveButton = within(productCards[0]).getByRole("button", { name: "X" })
+
+        // Click the button to remove the product
+        await user.click(productCardRemoveButton)
+
+        expect((mockStore.getState().CartItems)).toEqual({ value: [] })
 
     })
 
