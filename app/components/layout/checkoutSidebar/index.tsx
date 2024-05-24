@@ -86,6 +86,7 @@ function CheckoutSidebar() {
             {isCheckoutVisible && (
 
                 <motion.div
+                    data-testid="checkout-container"
                     className='fixed top-0 right-0 bottom-0 h-screen w-[85vw] md:w-[55vw] lg:w-[50vw] xl:w-[40vw] 2xl:w-[35vw] bg-primary shadow-3xl py-9'
                     initial={{ opacity: 0, x: 100 }}
                     animate={{ opacity: 1, x: 0 }}

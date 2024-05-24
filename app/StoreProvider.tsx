@@ -2,13 +2,16 @@
 import { useRef } from 'react'
 import { Provider } from 'react-redux'
 import { makeStore, AppStore } from '@/app/lib/Redux/store'
+import { EnhancedStore } from '@reduxjs/toolkit'
 
 export default function StoreProvider({
-    children
+    children,
+    testMockStore
 }: {
-    children: React.ReactNode
+    children: React.ReactNode,
+    testMockStore?: EnhancedStore<any> // Used on tests
 }) {
-    
+
     const storeRef = useRef<AppStore>()
 
     if (!storeRef.current) {
@@ -17,7 +20,7 @@ export default function StoreProvider({
     }
 
     return (
-        <Provider store={storeRef.current}>
+        <Provider store={testMockStore || storeRef.current}>
             {children}
         </Provider>
     )
