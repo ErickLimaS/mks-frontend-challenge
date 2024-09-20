@@ -59,7 +59,7 @@ function CartButton() {
 
             <CartSvg className="max-md:scale-75" />
 
-            <span className='font-bold text-xs md:text-lg pr-2 md:pr-4'>
+            <span className='tabular-nums font-bold text-xs md:text-lg pr-2 md:pr-4'>
                 {itemsOnCart}
             </span>
 
