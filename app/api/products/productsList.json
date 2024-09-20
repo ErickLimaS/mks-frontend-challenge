@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "name": "Apple Watch Series 7",
+    "brand": "Apple",
+    "description": "O Apple Watch faz coisas que outros aparelhos não conseguem porque ele fica no seu pulso.",
+    "photo": "https://mks-sistemas.nyc3.digitaloceanspaces.com/products/applewatch-series7.webp",
+    "price": "3200.00",
+    "createdAt": "2023-10-30T16:25:01.093Z",
+    "updatedAt": "2023-10-30T16:25:01.093Z"
+  },
+  {
+    "id": 2,
+    "name": "Galaxy S21",
+    "brand": "Samsung",
+    "description": "Um smartphone potente com câmera impressionante e design elegante.",
+    "photo": "https://images.samsung.com/is/image/samsung/p6pim/br/2401/gallery/br-galaxy-s24-sm-s921bzykzto-thumb-539291587",
+    "price": "4500.00",
+    "createdAt": "2023-10-30T16:25:01.093Z",
+    "updatedAt": "2023-10-30T16:25:01.093Z"
+  },
+  {
+    "id": 3,
+    "name": "PlayStation 5",
+    "brand": "Sony",
+    "description": "A nova geração de consoles com gráficos incríveis e jogos imersivos.",
+    "photo": "https://lojaibyte.vteximg.com.br/arquivos/ids/416326-1200-1200/Playstation-5---Controle-Dual-Sense-PS5-Branco---CFI-1214B01X--2.jpg?v=638284108066300000",
+    "price": "5000.00",
+    "createdAt": "2023-10-30T16:25:01.093Z",
+    "updatedAt": "2023-10-30T16:25:01.093Z"
+  },
+  {
+    "id": 4,
+    "name": "MacBook Air M1",
+    "brand": "Apple",
+    "description": "Um laptop leve e poderoso, ideal para produtividade e portabilidade.",
+    "photo": "https://www.detonashop.com.br/media/catalog/product/cache/1/image/580x580/9df78eab33525d08d6e5fb8d27136e95/1/_/1_11_3.png",
+    "price": "9000.00",
+    "createdAt": "2023-10-30T16:25:01.093Z",
+    "updatedAt": "2023-10-30T16:25:01.093Z"
+  },
+  {
+    "id": 5,
+    "name": "AirPods Pro",
+    "brand": "Apple",
+    "description": "Fones de ouvido sem fio com cancelamento de ruído ativo.",
+    "photo": "https://acdn.mitiendanube.com/stores/001/433/910/products/screen-shot-2022-09-08-at-10-57-201-95fc3f9f24fb426ccf16626459308794-640-0.png",
+    "price": "1500.00",
+    "createdAt": "2023-10-30T16:25:01.093Z",
+    "updatedAt": "2023-10-30T16:25:01.093Z"
+  },
+  {
+    "id": 6,
+    "name": "Xiaomi Mi Band 6",
+    "brand": "Xiaomi",
+    "description": "Uma pulseira inteligente com monitoramento de saúde e fitness.",
+    "photo": "https://cdn.awsli.com.br/800x800/1595/1595638/produto/99982630/band8-qjnkayimlh.png",
+    "price": "350.00",
+    "createdAt": "2023-10-30T16:25:01.093Z",
+    "updatedAt": "2023-10-30T16:25:01.093Z"
+  },
+  {
+    "id": 7,
+    "name": "Dell XPS 13",
+    "brand": "Dell",
+    "description": "Um ultrabook com design elegante e performance excepcional.",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Dell_XPS_13_%282017%29.png",
+    "price": "8500.00",
+    "createdAt": "2023-10-30T16:25:01.093Z",
+    "updatedAt": "2023-10-30T16:25:01.093Z"
+  },
+  {
+    "id": 8,
+    "name": "Google Nest Hub",
+    "brand": "Google",
+    "description": "Um display inteligente que controla sua casa e oferece entretenimento.",
+    "photo": "https://lh3.googleusercontent.com/xcLxXAoAxrIyicg6JDaZS-zGGKpXeYfUgBU7q90nw048r3gIOtfTh6-nnU7SgZSThDpU5Y6vTCXpoPJ5TylfhpGsRwDucba2xjGz",
+    "price": "1200.00",
+    "createdAt": "2023-10-30T16:25:01.093Z",
+    "updatedAt": "2023-10-30T16:25:01.093Z"
+  },
+  {
+    "id": 9,
+    "name": "Nintendo Switch",
+    "brand": "Nintendo",
+    "description": "Um console versátil para jogos em casa e em movimento.",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2OVAGJf8m12S14gMDiHGpvs0ygn7PU2o2Eg&s",
+    "price": "3000.00",
+    "createdAt": "2023-10-30T16:25:01.093Z",
+    "updatedAt": "2023-10-30T16:25:01.093Z"
+  },
+  {
+    "id": 10,
+    "name": "Sony WH-1000XM4",
+    "brand": "Sony",
+    "description": "Fones de ouvido com cancelamento de ruído líder na indústria.",
+    "photo": "https://www.sony.com/image/5d02da5df552836db894cead8a68f5f3?fmt=pjpeg&wid=330&bgcolor=FFFFFF&bgc=FFFFFF",
+    "price": "2000.00",
+    "createdAt": "2023-10-30T16:25:01.093Z",
+    "updatedAt": "2023-10-30T16:25:01.093Z"
+  },
+  {
+    "id": 11,
+    "name": "iPad Pro",
+    "brand": "Apple",
+    "description": "O tablet mais poderoso, ideal para trabalho e criatividade.",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2GxCZosT0rWrWmhovF1WPk3fMQMrRjMohHg&s",
+    "price": "7500.00",
+    "createdAt": "2023-10-30T16:25:01.093Z",
+    "updatedAt": "2023-10-30T16:25:01.093Z"
+  },
+  {
+    "id": 12,
+    "name": "OnePlus 9",
+    "brand": "OnePlus",
+    "description": "Um smartphone com tecnologia de câmera avançada e desempenho rápido.",
+    "photo": "https://oasis.opstatics.com/content/dam/oasis/page/2021/9-series/spec-image/9/Wintermist_2080a_euna.png",
+    "price": "4000.00",
+    "createdAt": "2023-10-30T16:25:01.093Z",
+    "updatedAt": "2023-10-30T16:25:01.093Z"
+  },
+  {
+    "id": 13,
+    "name": "Oculus Quest 2",
+    "brand": "Meta",
+    "description": "Um headset de realidade virtual para experiências imersivas.",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyG6xIvAm-46kMUcSKTBuvgDOKg47kK-qmow&s",
+    "price": "2800.00",
+    "createdAt": "2023-10-30T16:25:01.093Z",
+    "updatedAt": "2023-10-30T16:25:01.093Z"
+  },
+  {
+    "id": 14,
+    "name": "GoPro HERO9",
+    "brand": "GoPro",
+    "description": "Câmera de ação resistente, perfeita para aventuras ao ar livre.",
+    "photo": "https://t.ctcdn.com.br/D0FBwXxDap63MioT1Sj8i1y798c=/fit-in/600x600/filters:fill(transparent):watermark(wm/prd.png,-32p,center,1,none,15)/i544569.png",
+    "price": "3500.00",
+    "createdAt": "2023-10-30T16:25:01.093Z",
+    "updatedAt": "2023-10-30T16:25:01.093Z"
+  },
+  {
+    "id": 15,
+    "name": "Fitbit Charge 5",
+    "brand": "Fitbit",
+    "description": "Uma pulseira de fitness com monitoramento de saúde avançado.",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTupIeq5aJGoSe3skPCIF0igSHIq7oz6Tpb0Q&s",
+    "price": "1000.00",
+    "createdAt": "2023-10-30T16:25:01.093Z",
+    "updatedAt": "2023-10-30T16:25:01.093Z"
+  }
+]

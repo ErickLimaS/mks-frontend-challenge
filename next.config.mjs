@@ -6,10 +6,8 @@ const nextConfig = {
     images: {
         remotePatterns: [
             {
-                protocol: 'https',
-                hostname: 'mks-sistemas.nyc3.digitaloceanspaces.com',
-                port: '',
-                pathname: '/products/**',
+                protocol: "https",
+                hostname: "**",
             },
         ],
     },

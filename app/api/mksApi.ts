@@ -1,4 +1,4 @@
-const BASE_URL_MKS_API = "https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1"
+const BASE_URL_MKS_API = "https://mks-frontend-challenge-beige-two.vercel.app/api"
 
 // Fetchs products by params
 export async function getProducts(
